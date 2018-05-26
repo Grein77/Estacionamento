@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Park.Victor.Grein.Benner.Models.Preco>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Criar uma nova tabela", "Create")@*Chama a classe "Create.cshtml"*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Precos.PrecoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VigenciaInicial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VigenciaFinal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorHora)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precos.PrecoID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VigenciaInicial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VigenciaFinal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorHora)
+        </td>
+        <td>
+            @Html.ActionLink("Editar Placa", "Edit", new { id=item.PrecoID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.PrecoID }) |
+            @Html.ActionLink("Detalhes", "Delete", new { id=item.PrecoID })
+        </td>
+    </tr>
+}
+</table>
